@@ -40,6 +40,10 @@ struct TNode{
     TNode* right;
 };
 
+struct SetNode{
+    string data;
+};
+
 struct Stk{
     SNode* head;
 
