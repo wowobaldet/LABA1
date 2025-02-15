@@ -66,6 +66,114 @@ int main(int size, char* inter[]) {
         i++;
     }
     i++;
+
+    if (command == "SETADD"){
+        while (enter[i] != ' '){
+            if (i == enter.size()){
+                cout << "Inccorect enter" << endl;
+                return 0;
+            }
+            name += enter[i];
+            i++;
+        }
+        i++;
+        while (i < enter.size()){
+            new_data += enter[i];
+            i++;
+        }
+        int ind = 0;
+        int ind_start = 0;
+        Set setik(5);
+        string read = READ(filename);
+        if (is_same_name(name, ind, filename) == 1){
+            if (is_same_type("set", ind, read)){
+                setik.SetRead(read, ind_start, ind);
+                setik.SetPush(new_data);
+                setik.SetWrite(read, filename, ind_start, ind);
+                return 1;
+            } else {
+                cout << "Structure has a different type" << endl;
+                return 0;
+            }
+            
+        } else {
+            cout << "file don't have struct with this name." << endl;
+            return 0;
+        }
+        return 1;
+    }
+
+    if (command == "SETDEL"){
+        while (enter[i] != ' '){
+            if (i == enter.size()){
+                cout << "Inccorect enter" << endl;
+                return 0;
+            }
+            name += enter[i];
+            i++;
+        }
+        i++;
+        while (i < enter.size()){
+            new_data += enter[i];
+            i++;
+        }
+        int ind = 0;
+        int ind_start = 0;
+        Set setik(5);
+        string read = READ(filename);
+        if (is_same_name(name, ind, filename) == 1){
+            if (is_same_type("set", ind, read)){
+                setik.SetRead(read, ind_start, ind);
+                setik.SetPop(new_data);
+                setik.SetWrite(read, filename, ind_start, ind);
+                return 1;
+            } else {
+                cout << "Structure has a different type" << endl;
+                return 0;
+            }
+            
+        } else {
+            cout << "file don't have struct with this name." << endl;
+            return 0;
+        }
+        return 1;
+    }
+
+    if (command == "SET_AT"){
+        while (enter[i] != ' '){
+            if (i == enter.size()){
+                cout << "Inccorect enter" << endl;
+                return 0;
+            }
+            name += enter[i];
+            i++;
+        }
+        i++;
+        while (i < enter.size()){
+            new_data += enter[i];
+            i++;
+        }
+        int ind = 0;
+        int ind_start = 0;
+        Set setik(5);
+        string read = READ(filename);
+        if (is_same_name(name, ind, filename) == 1){
+            if (is_same_type("set", ind, read)){
+                setik.SetRead(read, ind_start, ind);
+                cout << setik.Set_At(new_data) << endl;
+                return 1;
+            } else {
+                cout << "Structure has a different type" << endl;
+                return 0;
+            }
+            
+        } else {
+            cout << "file don't have struct with this name." << endl;
+            return 0;
+        }
+        return 1;
+    }
+
     if(command == "TPUSH"){
         while (enter[i] != ' '){
            if(i == enter.size()){
